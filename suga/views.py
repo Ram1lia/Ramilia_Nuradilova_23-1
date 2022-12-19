@@ -30,3 +30,15 @@ def product_view(request):
            'product':gg
        }
        return render (request,'product/product.html',context=jk)
+
+
+def product_detail_view(request, id):
+    if request.method == 'GET':
+        gg = Product.objects.get(id=id)
+        jk = {
+            'product': gg,
+            'review': gg.review.all()
+        }
+
+        return render(request, 'product/product_detail.html', context=jk)
+
