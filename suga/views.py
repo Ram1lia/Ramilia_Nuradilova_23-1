@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
-
+from suga.models import *
 
 # Create your views here.
 
@@ -18,3 +18,15 @@ def goodby(request):
 def wings(request):
     if request.method == 'GET':
         return HttpResponse(datetime.datetime.now().date())
+
+def main_view(request):
+    if request.method == 'GET':
+        return render(request,'layouts/index.html')
+
+def product_view(request):
+    if request.method == 'GET':
+       gg = Product.objects.all()
+       jk={
+           'product':gg
+       }
+       return render (request,'product/product.html',context=jk)

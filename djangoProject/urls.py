@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from suga.views import *
 
 
@@ -23,5 +23,6 @@ urlpatterns = [
     path('hello/', eagle),
     path('now_date/', wings),
     path('goodbye/', goodby),
+    path('', include('suga.urls')),
 
 ]
