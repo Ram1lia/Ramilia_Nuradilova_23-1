@@ -9,16 +9,25 @@
             flex-wrap: wrap;
             padding: 10px;
         }
+        .card {
+            margin-bottom: 20px;
+        }
+        .products img {
+            width: 100%;
+        }
+
     </style>
     <div class="products">
-        {% for product in products %}
+        {% for products in products %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <h6 class="card-subtitle">{{ product.price }}</h6>
+                    <h5 class="card-title">{{ products.title }}</h5>
+                    <h6 class="card-subtitle">{{ products.price }}</h6>
+                    <img src="/media/{{ products.image }}" alt = "img not found : (">
                     <a href="/products/{{ product.id }}/" class="card-link">More</a>
                 </div>
             </div>
         {% endfor %}
     </div>
 {% endblock %}
+

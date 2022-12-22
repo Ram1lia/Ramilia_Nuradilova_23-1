@@ -25,11 +25,18 @@ def main_view(request):
 
 def product_view(request):
     if request.method == 'GET':
-       gg = Product.objects.all()
-       jk={
-           'product':gg
-       }
-       return render (request,'product/product.html',context=jk)
+       products = Product.objects.all()
+       # jk={
+       #     'product':gg
+       # }
+       return render(request,'product/product.html',{'products':products})
+
+
+def category_view(request):
+    if request.method == 'GET':
+        category = Category.objects.all()
+
+        return render(request,'product/categories.html', {'category':category})
 
 
 def product_detail_view(request, id):

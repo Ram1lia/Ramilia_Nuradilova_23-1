@@ -12,6 +12,7 @@
             margin-top: 20px;
         }
 
+
         .review {
             margin-top: 30px;
         }
@@ -32,8 +33,12 @@
             border: 1px solid #242b2e;
             color: cadetblue;
         }
+        .product img{
+            width: 100%;
+        }
     </style>
     <div class="product">
+        <img src="/media/{{ products.image }}" alt = "img not found : (">
         <h1>{{ product.title }}</h1>
         <h5>{{ product.description }}</h5>
         </div>
