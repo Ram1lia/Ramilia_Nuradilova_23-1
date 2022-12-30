@@ -49,6 +49,14 @@
                 </div>
             {% endfor %}
         </div>
+        <div class="create_comment">
+        <form action="/product/{{ product.id }}/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-primary" value="Оставить комментарий">
+        </form>
+    </div>
+
 
     </div>
 {% endblock %}

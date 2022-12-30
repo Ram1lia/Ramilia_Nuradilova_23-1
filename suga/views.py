@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import datetime
 from suga.models import *
+from suga.models import *
+from suga.forms import *
 
 # Create your views here.
 
@@ -48,4 +50,34 @@ def product_detail_view(request, id):
         }
 
         return render(request, 'product/product_detail.html', context=jk)
+
+def productcreateview(request):
+    if request.method == 'GET':
+        sg = {
+            'form': ProductCreateForm
+
+        }
+        return render(request, 'product/create.html', context=sg)
+    if request.method == 'POST':
+        form = ProductCreateForm(data=request.POST)
+
+        if form.is_valid():
+            Product.objects.create(
+                author_id=1,
+                title=form.cleaned_data.get('title'),
+                price=form.cleaned_data.get('price'),
+                text=form.cleaned_data.get('text'),
+
+            )
+
+            return redirect('/product')
+        else:
+            data = {
+                'form': form
+            }
+            return render(request, 'product/create.html', context=data)
+
+
+
+
 
