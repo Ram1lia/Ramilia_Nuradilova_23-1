@@ -24,5 +24,6 @@ urlpatterns = [
     path('now_date/', wings),
     path('goodbye/', goodby),
     path('', include('suga.urls')),
+    path('', include('users.urls')),
 
 ]
