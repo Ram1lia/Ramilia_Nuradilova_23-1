@@ -17,7 +17,15 @@
         }
 
     </style>
-    <div class="products">
+    <div>
+        <form action="/product/" method="get">
+            {% if hastag_id %}
+                <input type="hidden" name=" category_id" value="{{category_id }}">
+            {% endif %}
+            <input type="text" name="search" value="">
+        </form>
+    </div>
+    <div class="product">
         {% for products in products %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -28,6 +36,15 @@
                 </div>
             </div>
         {% endfor %}
+    </div>
+     <div>
+        {% for page in max_page %}
+            <a href="/product/?page={{ page }}">
+                <button>{{ page }}</button>
+            </a>
+        {% endfor %}
+
+
     </div>
 {% endblock %}
 

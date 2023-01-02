@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from users.utils import get_user_form_request
 
 
-
 def login_view(request):
     if request.method == 'GET':
         data = {
@@ -63,6 +62,8 @@ def register_view(request):
 
         data = {
             'form': form
+
+
         }
         return render(request, 'users/register.html', context=data)
 
