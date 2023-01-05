@@ -3,7 +3,7 @@ from users.forms import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from users.utils import get_user_form_request
-
+from django.views.generic import ListView, CreateView, DetailView
 
 def login_view(request):
     if request.method == 'GET':
@@ -31,6 +31,7 @@ def login_view(request):
             'form': form
         }
         return render(request, 'users/login.html', context=data)
+
 
 def logout_view(request):
     logout(request)

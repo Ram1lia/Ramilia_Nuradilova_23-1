@@ -20,9 +20,9 @@ from suga.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', eagle),
-    path('now_date/', wings),
-    path('goodbye/', goodby),
+    # path('hello/', eagle),
+    # path('now_date/', wings),
+    # path('goodbye/', goodby),
     path('', include('suga.urls')),
     path('', include('users.urls')),
 
